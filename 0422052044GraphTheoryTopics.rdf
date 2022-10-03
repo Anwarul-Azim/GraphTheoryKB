@@ -1,0 +1,636 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE foo [
+<!ENTITY wiki "https://en.wikipedia.org/wiki/" >
+<!ENTITY mw "https://mathworld.wolfram.com/" >
+<!ENTITY kb "https://github.com/Anwarul-Azim/GraphTheoryKB" >
+<!ENTITY xsd "https://www.w3.org/TR/xmlschema11-2/" >
+]>
+
+<rdf:RDF xml:lang="en" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:KB="https://github.com/Anwarul-Azim/GraphTheoryKB#">
+
+
+
+	<!--
+	///////////////////////////////////////////////////////////////////////////////////////
+	//
+	// Classes
+	//
+	///////////////////////////////////////////////////////////////////////////////////////
+ 	-->
+
+
+
+	<!-- ///// Graph Types ///// -->
+
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#Graph -->
+
+	<rdfs:Class rdf:about="&kb;#Graph">
+    	<rdfs:isDefinedBy rdf:resource="&wiki;"/>
+	</rdfs:Class>
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#DirectedGraph -->
+
+	<rdfs:Class rdf:about="&kb;#DirectedGraph">
+    	<rdfs:subClassOf rdf:resource="#Graph"/>
+    	<rdfs:isDefinedBy rdf:resource="&wiki;Directed_graph"/>
+	</rdfs:Class>
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#UnDirectedGraph -->
+
+	<rdfs:Class rdf:about="&kb;#UnDirectedGraph">
+    	<rdfs:subClassOf rdf:resource="#Graph"/>
+	</rdfs:Class>
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#SimpleGraph -->
+
+	<rdfs:Class rdf:about="&kb;#SimpleGraph">
+    	<rdfs:subClassOf rdf:resource="#UnDirectedGraph"/>
+    	<rdfs:subClassOf rdf:resource="#UnWeightedGraph"/>
+    	<rdfs:isDefinedBy rdf:resource="&mw;SimpleGraph.html"/>
+	</rdfs:Class>
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#Multigraph -->
+
+	<rdfs:Class rdf:about="&kb;#Multigraph">
+    	<rdfs:subClassOf rdf:resource="#Graph"/>
+    	<rdfs:isDefinedBy rdf:resource="&wiki;Multigraph"/>
+	</rdfs:Class>
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#Complete_graph -->
+
+	<rdfs:Class rdf:about="&kb;#Complete_graph">
+    	<rdfs:subClassOf rdf:resource="#UnDirectedGraph"/>
+    	<rdfs:subClassOf rdf:resource="#SimpleGraph"/>
+    	<rdfs:isDefinedBy rdf:resource="&wiki;Complete_graph"/>
+    	<rdfs:seeAlso rdf:resource="&wiki;Clique_(graph_theory)"/>
+	</rdfs:Class>
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#CycleGraph -->
+
+	<rdfs:Class rdf:about="&kb;#CycleGraph">
+    	<rdfs:subClassOf rdf:resource="#Graph"/>
+    	<rdfs:isDefinedBy rdf:resource="&wiki;Cycle_graph"/>
+	</rdfs:Class>
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#AcyclicGraph -->
+
+	<rdfs:Class rdf:about="&kb;#AcyclicGraph">
+    	<rdfs:subClassOf rdf:resource="#Graph"/>
+    	<rdfs:isDefinedBy rdf:resource="&wiki;Acyclic_graph"/>
+	</rdfs:Class>
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#WeightedGraph -->
+
+	<rdfs:Class rdf:about="&kb;#WeightedGraph">
+    	<rdfs:subClassOf rdf:resource="#Graph"/>
+    	<rdfs:isDefinedBy rdf:resource="&mw;WeightedGraph.html"/>
+	</rdfs:Class>
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#UnWeightedGraph -->
+
+	<rdfs:Class rdf:about="&kb;#UnWeightedGraph">
+    	<rdfs:subClassOf rdf:resource="#Graph"/>
+	</rdfs:Class>
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#RegularGraph -->
+
+	<rdfs:Class rdf:about="&kb;#RegularGraph">
+    	<rdfs:subClassOf rdf:resource="#Graph"/>
+    	<rdfs:isDefinedBy rdf:resource="&wiki;Regular_graph"/>
+	</rdfs:Class>
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#IrregularGraph -->
+
+	<rdfs:Class rdf:about="&kb;#IrregularGraph">
+    	<rdfs:subClassOf rdf:resource="#Graph"/>
+	</rdfs:Class>
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#PlanarGraph -->
+
+	<rdfs:Class rdf:about="&kb;#PlanarGraph">
+    	<rdfs:subClassOf rdf:resource="#Graph"/>
+    	<rdfs:isDefinedBy rdf:resource="&wiki;Planar_graph"/>
+	</rdfs:Class>
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#NonPlanarGraph -->
+
+	<rdfs:Class rdf:about="&kb;#NonPlanarGraph">
+    	<rdfs:subClassOf rdf:resource="#Graph"/>
+    	<rdfs:isDefinedBy rdf:resource="&mw;NonplanarGraph.html"/>
+	</rdfs:Class>
+
+
+
+	<!-- ///// Graph Inverients ///// -->
+
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#GraphInvariant -->
+
+	<rdfs:Class rdf:about="&kb;#GraphInvariant">
+    	<rdfs:isDefinedBy rdf:resource="&wiki;Graph_property"/>
+	</rdfs:Class>
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#GraphSize -->
+
+	<rdfs:Class rdf:about="&kb;#GraphSize">
+    	<rdfs:subClassOf rdf:resource="#GraphInvariant"/>
+	</rdfs:Class>
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#GraphOrder -->
+
+	<rdfs:Class rdf:about="&kb;#GraphOrder">
+    	<rdfs:subClassOf rdf:resource="#GraphInvariant"/>
+	</rdfs:Class>
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#ChromaticNumber -->
+
+	<rdfs:Class rdf:about="&kb;#ChromaticNumber">
+    	<rdfs:subClassOf rdf:resource="#GraphInvariant"/>
+    	<rdfs:isDefinedBy rdf:resource="&mw;ChromaticNumber.html"/>
+	</rdfs:Class>
+
+
+
+	<!-- ///// Sub-Graph Structures ///// -->
+
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#SubGraph -->
+
+	<rdfs:Class rdf:about="&kb;#SubGraph">
+    	<rdfs:subClassOf rdf:resource="#Graph"/>
+    	<rdfs:isDefinedBy rdf:resource="&wiki;Glossary_of_graph_theory#subgraph"/>
+	</rdfs:Class>
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#Path -->
+
+	<rdfs:Class rdf:about="&kb;#Path">
+    	<rdfs:subClassOf rdf:resource="#SubGraph"/>
+    	<rdfs:isDefinedBy rdf:resource="&wiki;Path_(graph_theory)"/>
+	</rdfs:Class>
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#Cycle -->
+
+	<rdfs:Class rdf:about="&kb;#Cycle">
+    	<rdfs:subClassOf rdf:resource="#SubGraph"/>
+    	<rdfs:isDefinedBy rdf:resource="&wiki;Cycle_(graph_theory)"/>
+	</rdfs:Class>
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#Clique -->
+
+	<rdfs:Class rdf:about="&kb;#Clique">
+    	<rdfs:subClassOf rdf:resource="#SubGraph"/>
+    	<rdfs:subClassOf rdf:resource="#CompleteGraph"/>
+    	<rdfs:isDefinedBy rdf:resource="&wiki;Clique_(graph_theory)"/>
+	</rdfs:Class>
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#Tree -->
+
+	<rdfs:Class rdf:about="&kb;#Tree">
+    	<rdfs:subClassOf rdf:resource="#UnDirectedGraph"/>
+    	<rdfs:subClassOf rdf:resource="#AcyclicGraph"/>
+    	<rdfs:isDefinedBy rdf:resource="&wiki;Tree_(graph_theory)"/>
+	</rdfs:Class>
+
+
+
+	<!-- ///// Utilities ///// -->
+
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#Parity -->
+
+	<rdfs:Class rdf:about="&kb;#Parity">
+    	<rdfs:isDefinedBy rdf:resource="&wiki;Parity_(mathematics)"/>
+	</rdfs:Class>
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#Even -->
+
+	<rdfs:Class rdf:about="&kb;#Even">
+    	<rdfs:subClassOf rdf:resource="#Parity"/>
+	</rdfs:Class>
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#Odd -->
+
+	<rdfs:Class rdf:about="&kb;#Odd">
+    	<rdfs:subClassOf rdf:resource="#Parity"/>
+	</rdfs:Class>
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#MaximumOrLongest -->
+
+	<rdfs:Class rdf:about="&kb;#MaximumOrLongest"/>
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#MinimumOrShortest -->
+
+	<rdfs:Class rdf:about="&kb;#MinimumOrShortest"/>
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#EmptySet -->
+
+	<rdfs:Class rdf:about="&kb;#EmptySet"/>
+
+
+
+	<!-- ///// Graph Problems ///// -->
+
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#GraphProblem -->
+
+	<rdfs:Class rdf:about="&kb;#GraphProblem">
+    	<rdfs:isDefinedBy rdf:resource="&wiki;"/>
+	</rdfs:Class>
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#DecisionProblem -->
+
+	<rdfs:Class rdf:about="&kb;#DecisionProblem">
+    	<rdfs:subClassOf rdf:resource="#GraphProblem"/>
+	</rdfs:Class>
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#OptimizationProblem -->
+
+	<rdfs:Class rdf:about="&kb;#OptimizationProblem">
+    	<rdfs:subClassOf rdf:resource="#GraphProblem"/>
+	</rdfs:Class>
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#VisualizationProblem -->
+
+	<rdfs:Class rdf:about="&kb;#VisualizationProblem">
+    	<rdfs:subClassOf rdf:resource="#GraphProblem"/>
+	</rdfs:Class>
+
+
+
+	<!-- ///// Graph Algorithms ///// -->
+
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#GraphAlgorithm -->
+
+	<rdfs:Class rdf:about="&kb;#GraphAlgorithm"/>
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#ExactAlgorithm -->
+
+	<rdfs:Class rdf:about="&kb;#ExactAlgorithm">
+    	<rdfs:subClassOf rdf:resource="#GraphAlgorithm"/>
+	</rdfs:Class>
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#ApproximateAlgorithm -->
+
+	<rdfs:Class rdf:about="&kb;#ApproximateAlgorithm">
+    	<rdfs:subClassOf rdf:resource="#GraphAlgorithm"/>
+	</rdfs:Class>
+
+
+
+	<!-- ///// Complexity Classes ///// -->
+	<!-- ///// Assuming P not Equals NP ///// -->
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#Decidable -->
+
+	<rdfs:Class rdf:about="&kb;#Decidable"/>
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#NPHard -->
+
+	<rdfs:Class rdf:about="&kb;#NPHard">
+    	<rdfs:subClassOf rdf:resource="#Decidable"/>
+	</rdfs:Class>
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#NP -->
+
+	<rdfs:Class rdf:about="&kb;#NP">
+    	<rdfs:subClassOf rdf:resource="#Decidable"/>
+	</rdfs:Class>
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#Polynomial -->
+
+	<rdfs:Class rdf:about="&kb;#Polynomial">
+    	<rdfs:subClassOf rdf:resource="#NP"/>
+	</rdfs:Class>
+
+
+
+	<!-- ///// Run Time/ Space Upper Bounds///// -->
+
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#BigOExpressable-->
+
+	<rdfs:Class rdf:about="&kb;#BigOExpressable"/>
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#Constant -->
+
+	<rdfs:Class rdf:about="&kb;#Constant">
+    	<rdfs:subClassOf rdf:resource="#BigOExpressable"/>
+	</rdfs:Class>
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#Logarithmic -->
+
+	<rdfs:Class rdf:about="&kb;#Logarithmic">
+    	<rdfs:subClassOf rdf:resource="#BigOExpressable"/>
+	</rdfs:Class>
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#Linear -->
+
+	<rdfs:Class rdf:about="&kb;#Linear">
+    	<rdfs:subClassOf rdf:resource="#BigOExpressable"/>
+	</rdfs:Class>
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#Quadratic -->
+
+	<rdfs:Class rdf:about="&kb;#Quadratic">
+    	<rdfs:subClassOf rdf:resource="#BigOExpressable"/>
+	</rdfs:Class>
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#Exponential -->
+
+	<rdfs:Class rdf:about="&kb;#Exponential">
+    	<rdfs:subClassOf rdf:resource="#BigOExpressable"/>
+	</rdfs:Class>
+
+
+
+	<!--
+	///////////////////////////////////////////////////////////////////////////////////////
+	//
+	// Properties
+	//
+	///////////////////////////////////////////////////////////////////////////////////////
+ 	-->
+
+
+
+
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#subGraphOf -->
+
+	<rdf:Property rdf:about="&kb;#subGraphOf">
+    	<rdfs:domain rdf:resource="#Graph"/>
+    	<rdfs:range rdf:resource="#Graph"/>
+	</rdf:Property>
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#contains -->
+
+	<rdf:Property rdf:about="&kb;#contains">
+    	<rdfs:domain rdf:resource="#Graph"/>
+    	<rdfs:range rdf:resource="#SubGraph"/>
+	</rdf:Property>
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#hasProperty -->
+
+	<rdf:Property rdf:about="&kb;#hasProperty">
+    	<rdfs:domain rdf:resource="#Graph"/>
+    	<rdfs:range rdf:resource="#GraphInvariant"/>
+	</rdf:Property>
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#hasValue -->
+
+	<rdf:Property rdf:about="&kb;#hasValue">
+    	<rdfs:domain rdf:resource="#GraphInvariant"/>
+    	<rdfs:range rdf:resource="&xsd;#nonNegativeInteger"/>
+	</rdf:Property>
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#hasPraity -->
+
+	<rdf:Property rdf:about="&kb;#hasPraity">
+    	<rdfs:domain rdf:resource="#GraphInvariant"/>
+    	<rdfs:range rdf:resource="#Parity"/>
+	</rdf:Property>
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#hasOrder -->
+
+	<rdf:Property rdf:about="&kb;#hasOrder">
+    	<rdfs:domain rdf:resource="#Graph"/>
+    	<rdfs:range rdf:resource="#GraphOrder"/>
+	</rdf:Property>
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#hasSize -->
+
+	<rdf:Property rdf:about="&kb;#hasSize">
+    	<rdfs:domain rdf:resource="#Graph"/>
+    	<rdfs:range rdf:resource="#GraphSize"/>
+	</rdf:Property>
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#hasMaxDegree -->
+
+	<rdf:Property rdf:about="&kb;#hasMaxDegree">
+    	<rdfs:domain rdf:resource="#Graph"/>
+    	<rdfs:range rdf:resource="#GraphDegree"/>
+    	<rdfs:range rdf:resource="#MaximumOrLongest"/>
+
+	</rdf:Property>
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#hasMinDegree -->
+
+	<rdf:Property rdf:about="&kb;#hasMinDegree">
+    	<rdfs:domain rdf:resource="#Graph"/>
+    	<rdfs:range rdf:resource="&xsd;#GraphDegree"/>
+    	<rdfs:range rdf:resource="#MinimumOrShortest"/>
+
+	</rdf:Property>
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#hasMaxClique -->
+
+	<rdf:Property rdf:about="&kb;#hasMaxClique">
+    	<rdfs:domain rdf:resource="#SimpleGraph"/>
+    	<rdfs:domain rdf:resource="#UnDirectedGraph"/>
+    	<rdfs:range rdf:resource="#Clique"/>
+    	<rdfs:range rdf:resource="#MaximumOrLongest"/>
+	</rdf:Property>
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#hasChromaticNumber -->
+
+	<rdf:Property rdf:about="&kb;#hasChromaticNumber">
+    	<rdfs:domain rdf:resource="#Graph"/>
+    	<rdfs:range rdf:resource="ChromaticNumber"/>
+	</rdf:Property>
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#inComplexityClass -->
+
+	<rdf:Property rdf:about="&kb;#inComplexityClass">
+    	<rdfs:domain rdf:resource="#GraphProblem"/>
+    	<rdfs:range rdf:resource="Decidable"/>
+	</rdf:Property>
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#hasApplicationIn -->
+
+	<rdf:Property rdf:about="&kb;#hasApplicationIn">
+    	<rdfs:domain rdf:resource="#GraphProblem"/>
+	</rdf:Property>
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#canBeReducedTo -->
+
+	<rdf:Property rdf:about="&kb;#canBeReducedTo">
+    	<rdfs:domain rdf:resource="#GraphProblem"/>
+    	<rdfs:range rdf:resource="GraphProblem"/>
+	</rdf:Property>
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#solves -->
+
+	<rdf:Property rdf:about="&kb;#solves">
+    	<rdfs:domain rdf:resource="#GraphAlgorithm"/>
+    	<rdfs:range rdf:resource="GraphProblem"/>
+	</rdf:Property>
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#requiresRunTime -->
+
+	<rdf:Property rdf:about="&kb;#requiresRunTime">
+    	<rdfs:domain rdf:resource="#GraphAlgorithm"/>
+    	<rdfs:range rdf:resource="BigOExpressable"/>
+	</rdf:Property>
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#requiresSpace -->
+
+	<rdf:Property rdf:about="&kb;#requiresSpace">
+    	<rdfs:domain rdf:resource="#GraphAlgorithm"/>
+    	<rdfs:range rdf:resource="BigOExpressable"/>
+	</rdf:Property>
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#fasterThan -->
+
+	<rdf:Property rdf:about="&kb;#fasterThan">
+    	<rdfs:domain rdf:resource="#GraphAlgorithm"/>
+    	<rdfs:range rdf:resource="GraphAlgorithm"/>
+	</rdf:Property>
+
+
+	<!-- https://github.com/Anwarul-Azim/GraphTheoryKB#produces -->
+
+	<rdf:Property rdf:about="&kb;#produces">
+    	<rdfs:domain rdf:resource="#GraphAlgorithm"/>
+    	<rdfs:range rdf:resource="GraphInvariant"/>
+    	<rdfs:range rdf:resource="Subgraph"/>
+	</rdf:Property>
+	
+	
+	
+
+
+
+	<!--
+	///////////////////////////////////////////////////////////////////////////////////////
+	//
+	// Instances
+	//
+	///////////////////////////////////////////////////////////////////////////////////////
+ 	-->
+ 	
+
+
+
+
+
+
+	<KB:GraphSize rdf:about="#GraphSize15">
+    	<KB:hasParity rdf:resource="#Odd"/>
+    	<KB:hasValue>15</KB:hasValue>
+	</KB:GraphSize>
+
+	<KB:GraphOrder rdf:about="#GraphOrder10">
+    	<KB:hasParity rdf:resource="#Even"/>
+    	<KB:hasValue>10</KB:hasValue>
+	</KB:GraphOrder>
+
+	<KB:GraphChromaticNumber rdf:about="#GraphChromaticNumber03">
+    	<KB:hasParity rdf:resource="#Odd"/>
+    	<KB:hasValue>03</KB:hasValue>
+	</KB:GraphChromaticNumber>
+    
+	<KB:Path rdf:about="&wiki;#Hamiltonian_path"/>
+
+
+	<KB:UnDirectedGraph rdf:about="&wiki;Petersen_graph">
+    	<KB:subGraphOf rdf:resource="#RegularGraph"/>
+    	<KB:subGraphOf rdf:resource="#NonPlanarGraph"/>
+   	 
+    	<KB:hasProperty rdf:resource="#GraphSize15"/>
+    	<KB:hasProperty rdf:resource="#GraphOrder10"/>
+    	<KB:hasProperty rdf:resource="#GraphChromaticNumber3"/>
+   	 
+    	<KB:contains rdf:resource="#Hamiltonian_path"/>
+
+	</KB:UnDirectedGraph>
+	
+	
+	<KB:DecisionProblem rdf:about="&wiki;Boolean_satisfiability_problem">
+	    <KB:inComplexityClass rdf:resource="#NPComplete"/>
+	    <KB:hasApplicationIn rdf:resource="&wiki;Very_Large_Scale_Integration"/>
+	</KB:DecisionProblem>
+	
+	
+	<KB:OptimizationProblem rdf:about="&wiki;Clique_problem">
+	    <KB:inComplexityClass rdf:resource="#NPHard"/>
+	    <KB:hasApplicationIn rdf:resource="&wiki;Computational_chemistry"/>
+	    <KB:canBeReducedTo rdf:resource="#Boolean_satisfiability_problem"/>
+	</KB:OptimizationProblem>
+	
+	
+	<KB:ExactAlgorithm rdf:about="&wiki;MaxCliqueDyn_maximum_clique_algorithm">
+	    <KB:solves rdf:resource="#Clique_problem"/>
+	    <KB:requiresRunTime rdf:resource="#Exponential"/>
+	    <KB:utilizes rdf:resource="#ChromaticNumber"/>
+	</KB:ExactAlgorithm>
+
+
+
+</rdf:RDF>
+
+
